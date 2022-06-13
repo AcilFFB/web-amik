@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DosenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('v_home');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('dosen', [DosenController::class, 'index']);
 
-Route::get('/mahasiswa', function () {
-    return view('v_mahasiswa');
-});
-
-Route::view('/mahasiswa', 'v_mahasiswa');
-Route::view('/dosen', 'v_dosen');
