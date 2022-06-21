@@ -3,6 +3,7 @@
 @section('title','Mahasiswa')
 
 @section('content')
+    <a href="/mahasiswa/add" class="btn btn-primary btn-sm">Add</a><br>
     <table class="table table-bordered">
         <thead>
             <tr>
