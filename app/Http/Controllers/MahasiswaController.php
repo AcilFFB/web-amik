@@ -45,5 +45,14 @@ class MahasiswaController extends Controller
             'nama_mahasiswa.required' => 'Tidak Boleh Kosong !!',
             'jurusan.required' => 'Tidak Boleh Kosong !!',
         ]);
+
+        $data = [
+            'npm' => Request()->npm,
+            'nama_mahasiswa' => Request()->nama_mahasiswa,
+            'jurusan' => Request()->jurusan,
+        ];
+
+        $this->MahasiswaModel->addData($data);
+        return redirect()->route('mahasiswa')->with('pesan','Data Berhasil Ditambahkan !!!');
     }
 }

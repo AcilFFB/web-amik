@@ -4,6 +4,16 @@
 
 @section('content')
     <a href="/mahasiswa/add" class="btn btn-primary btn-sm">Add</a><br>
+
+    @if (session('pesan'))<br>
+    <div class="alert alert-success fade in">
+        <button type="button" class="close pull-right" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4><i class="icon fa fa-check"></i> Success!</h4>
+        {{ session('pesan') }}
+    </div>
+    @endif  
     <table class="table table-bordered">
         <thead>
             <tr>

@@ -14,4 +14,8 @@ class MahasiswaModel extends Model
     public function detailData($id_mahasiswa){
         return DB::table('tbl_mahasiswa')->where('id_mahasiswa', $id_mahasiswa)->first();
     }
+
+    public function addData($data){
+        return DB::table('tbl_mahasiswa')->insert($data);
+    }
 }

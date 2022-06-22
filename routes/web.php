@@ -17,7 +17,7 @@ use App\Http\Controllers\DosenController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
 Route::get('/mahasiswa/detail/{id_mahasiswa}', [MahasiswaController::class, 'detail']);
 Route::get('/mahasiswa/add', [MahasiswaController::class, 'add']);
 Route::post('/mahasiswa/insert', [MahasiswaController::class, 'insert']);
