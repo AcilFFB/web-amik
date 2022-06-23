@@ -34,7 +34,7 @@
                     <td>{{ $data->jurusan}}</td>
                     <td>
                         <a href="/mahasiswa/detail/{{ $data->id_mahasiswa }}" class="btn btn-sm btn-success">Detail</a>
-                        <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="/mahasiswa/edit/{{ $data->id_mahasiswa }}" class="btn btn-sm btn-warning">Edit</a>
                         <a href="#" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>

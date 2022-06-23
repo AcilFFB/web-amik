@@ -21,5 +21,8 @@ Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa'
 Route::get('/mahasiswa/detail/{id_mahasiswa}', [MahasiswaController::class, 'detail']);
 Route::get('/mahasiswa/add', [MahasiswaController::class, 'add']);
 Route::post('/mahasiswa/insert', [MahasiswaController::class, 'insert']);
+Route::get('/mahasiswa/edit/{id_mahasiswa}', [MahasiswaController::class, 'edit']);
+Route::post('/mahasiswa/update/{id_mahasiswa}', [MahasiswaController::class, 'update']);
+
 Route::get('dosen', [DosenController::class, 'index']);
 
