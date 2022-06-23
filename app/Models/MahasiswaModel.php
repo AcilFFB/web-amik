@@ -18,4 +18,8 @@ class MahasiswaModel extends Model
     public function addData($data){
         return DB::table('tbl_mahasiswa')->insert($data);
     }
+
+    public function editData($id_mahasiswa, $data){
+        return DB::table('tbl_mahasiswa')->where('id_mahasiswa', $id_mahasiswa)->update($data);
+    }
 }
