@@ -42,6 +42,7 @@
 
                     <div class="form-group">
                         <button class="btn btn-primary btn-sm">Simpan</button>
+                        <a href="/mahasiswa" class="btn btn-success btn-sm">Kembali</a>
                     </div>
 
                 </div>       
