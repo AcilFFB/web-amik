@@ -9,6 +9,7 @@ class MahasiswaController extends Controller
 {
     public function __construct(){
         $this->MahasiswaModel = new MahasiswaModel();
+        $this->middleware('auth');
     }  
 
     public function index(){
