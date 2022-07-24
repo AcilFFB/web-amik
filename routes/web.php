@@ -27,3 +27,7 @@ Route::get('/mahasiswa/delete/{id_mahasiswa}', [MahasiswaController::class, 'del
 
 Route::get('dosen', [DosenController::class, 'index']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
