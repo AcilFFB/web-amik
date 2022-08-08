@@ -25,7 +25,13 @@ Route::get('/mahasiswa/edit/{id_mahasiswa}', [MahasiswaController::class, 'edit'
 Route::post('/mahasiswa/update/{id_mahasiswa}', [MahasiswaController::class, 'update']);
 Route::get('/mahasiswa/delete/{id_mahasiswa}', [MahasiswaController::class, 'delete']);
 
-Route::get('dosen', [DosenController::class, 'index']);
+Route::get('dosen', [DosenController::class, 'index'])->name('dosen');
+Route::get('/dosen/detail/{id_dosen}', [DosenController::class, 'detail']);
+Route::get('/dosen/add', [DosenController::class, 'add']);
+Route::post('/dosen/insert', [DosenController::class, 'insert']);
+Route::get('/dosen/edit/{id_dosen}', [DosenController::class, 'edit']);
+Route::post('/dosen/update/{id_dosen}', [DosenController::class, 'update']);
+Route::get('/dosen/delete/{id_dosen}', [DosenController::class, 'delete']);
 
 
 Auth::routes();
