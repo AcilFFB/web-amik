@@ -1,9 +1,16 @@
 @extends('layout.v_template')
 
-@section('title','Mahasiswa')
+@section('title','Data Mahasiswa')
 
 @section('content')
     <a href="/mahasiswa/add" class="btn btn-primary btn-sm">Add</a><br>
+
+     <!-- <br> <select id="input_filter">                      
+              <option value="S1 Teknik Informatika">S1 Teknik Informatika</option>
+              <option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
+              <option value="S1 DKV">S1 DKV</option>
+      </select> -->
+
 
     @if (session('pesan'))<br>
     <div class="alert alert-success fade in">
@@ -14,7 +21,7 @@
         {{ session('pesan') }}
     </div>
     @endif  
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="myTable">
         <thead>
             <tr>
                 <th>No</th>
@@ -67,4 +74,17 @@
         </div>
     @endforeach
 
+    
 @endsection
+
+<!-- @section('script')
+<script>
+    var table = $('#myTable').DataTable();
+    $('#input_filter').on( 'change', function () {
+        table
+            .columns(3)
+            .search( this.value )
+            .draw();
+    } );
+</script>
+@endsection -->

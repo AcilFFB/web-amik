@@ -19,21 +19,28 @@ use App\Http\Controllers\DosenController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
 Route::get('/mahasiswa/detail/{id_mahasiswa}', [MahasiswaController::class, 'detail']);
-Route::get('/mahasiswa/add', [MahasiswaController::class, 'add']);
-Route::post('/mahasiswa/insert', [MahasiswaController::class, 'insert']);
-Route::get('/mahasiswa/edit/{id_mahasiswa}', [MahasiswaController::class, 'edit']);
-Route::post('/mahasiswa/update/{id_mahasiswa}', [MahasiswaController::class, 'update']);
-Route::get('/mahasiswa/delete/{id_mahasiswa}', [MahasiswaController::class, 'delete']);
+
 
 Route::get('dosen', [DosenController::class, 'index'])->name('dosen');
 Route::get('/dosen/detail/{id_dosen}', [DosenController::class, 'detail']);
-Route::get('/dosen/add', [DosenController::class, 'add']);
-Route::post('/dosen/insert', [DosenController::class, 'insert']);
-Route::get('/dosen/edit/{id_dosen}', [DosenController::class, 'edit']);
-Route::post('/dosen/update/{id_dosen}', [DosenController::class, 'update']);
-Route::get('/dosen/delete/{id_dosen}', [DosenController::class, 'delete']);
+
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//hak akses untuk admin
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/mahasiswa/add', [MahasiswaController::class, 'add']);
+    Route::post('/mahasiswa/insert', [MahasiswaController::class, 'insert']);
+    Route::get('/mahasiswa/edit/{id_mahasiswa}', [MahasiswaController::class, 'edit']);
+    Route::post('/mahasiswa/update/{id_mahasiswa}', [MahasiswaController::class, 'update']);
+    Route::get('/mahasiswa/delete/{id_mahasiswa}', [MahasiswaController::class, 'delete']);
+
+    Route::get('/dosen/add', [DosenController::class, 'add']);
+    Route::post('/dosen/insert', [DosenController::class, 'insert']);
+    Route::get('/dosen/edit/{id_dosen}', [DosenController::class, 'edit']);
+    Route::post('/dosen/update/{id_dosen}', [DosenController::class, 'update']);
+    Route::get('/dosen/delete/{id_dosen}', [DosenController::class, 'delete']);
+});

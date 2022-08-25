@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\DB;
 class MahasiswaModel extends Model
 {
     public function allData(){
-        return DB::table('tbl_mahasiswa')->get();
+        return DB::table('tbl_mahasiswa')
+                    ->orderBy('npm','asc')
+                    ->get();
     }
 
     public function detailData($id_mahasiswa){
