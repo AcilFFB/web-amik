@@ -17,6 +17,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,17 +57,17 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('template/')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="{{asset('template/')}}/dist/img/3.png" class="user-image" alt="User Image">
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('template/')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{asset('template/')}}/dist/img/3.png" class="img-circle" alt="User Image">
 
                 <p>
                 {{ Auth::user()->name }} - {{ Auth::user()->email }}
-                  <small>Member since Nov. 2012</small>
+                  <small>{{ Auth::user()->created_at }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -115,11 +116,17 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('template/')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{asset('template/')}}/dist/img/3.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i>  
+            @if (auth()->user()->level==1)
+              Admin
+              @elseif (auth()->user()->level==2)
+                User
+            @endif
+           </a>
         </div>
       </div>
       
@@ -184,6 +191,15 @@
 <script src="{{asset('template')}}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+<script>
+  $(document).ready( function () {
+      $('#myTable').DataTable();
+  } );
+</script>
+@yield('script')
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

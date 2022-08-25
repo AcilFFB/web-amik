@@ -1,6 +1,6 @@
 @extends('layout.v_template')
 
-@section('title','Dosen')
+@section('title','Data Dosen')
 
 @section('content')
 <a href="/dosen/add" class="btn btn-primary btn-sm">Add</a><br>
@@ -14,7 +14,7 @@
         {{ session('pesan') }}
     </div>
     @endif  
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="myTable">
         <thead>
             <tr>
                 <th>No</th>
@@ -66,4 +66,5 @@
         <!-- /.modal-dialog -->
         </div>
     @endforeach
+    
 @endsection
