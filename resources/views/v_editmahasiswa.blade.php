@@ -12,7 +12,7 @@
 
                     <div class="form-group">
                         <label>NPM</label>
-                        <input name="npm" class="form-control" value="{{ $mahasiswa->npm }}" readonly>
+                        <input name="npm" class="form-control" value="{{ $mahasiswa->npm }}">
                         <div class="text-danger">
                             @error('npm')
                                 {{ $message }}
