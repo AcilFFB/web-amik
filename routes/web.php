@@ -20,11 +20,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
 Route::get('/mahasiswa/detail/{id_mahasiswa}', [MahasiswaController::class, 'detail']);
 
-
 Route::get('dosen', [DosenController::class, 'index'])->name('dosen');
 Route::get('/dosen/detail/{id_dosen}', [DosenController::class, 'detail']);
-
-
 
 Auth::routes();
 
