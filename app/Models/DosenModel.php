@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\DB;
 class DosenModel extends Model
 {
     public function allData(){
-        return DB::table('tbl_dosen')->get();
+        return DB::table('tbl_dosen')
+                    ->orderBy('nama_dosen','asc')
+                    ->get();
     }
 
     public function detailData($id_dosen){

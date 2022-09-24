@@ -35,11 +35,12 @@ class DosenController extends Controller
 
     public function insert(){
         Request()->validate([
-            'nama_dosen' => 'required',
+            'nama_dosen' => 'required|unique:tbl_dosen,nama_dosen',
             'matkul' => 'required',
             'jabatan' => 'required',
         ],[
             'nama_dosen.required' => 'Tidak Boleh Kosong !!',
+            'nama_dosen.unique' => 'Nama Sudah Ada !!',
             'matkul.required' => 'Tidak Boleh Kosong !!',
             'jabatan.required' => 'Tidak Boleh Kosong !!',
         ]);
@@ -48,6 +49,7 @@ class DosenController extends Controller
             'nama_dosen' => Request()->nama_dosen,
             'matkul' => Request()->matkul,
             'jabatan' => Request()->jabatan,
+            //'created_at' => \Carbon\Carbon::now()
         ];
 
         $this->DosenModel->addData($data);
