@@ -51,6 +51,7 @@ class MahasiswaController extends Controller
             'npm' => Request()->npm,
             'nama_mahasiswa' => Request()->nama_mahasiswa,
             'jurusan' => Request()->jurusan,
+            //'created_at' => \Carbon\Carbon::now()
         ];
 
         $this->MahasiswaModel->addData($data);

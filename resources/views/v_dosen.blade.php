@@ -34,10 +34,13 @@
                     <td>{{ $data->jabatan}}</td>
                     <td>
                         <a href="/dosen/detail/{{ $data->id_dosen }}" class="btn btn-sm btn-success">Detail</a>
+                        <br><br>
                         <a href="/dosen/edit/{{ $data->id_dosen }}" class="btn btn-sm btn-warning">Edit</a>
+                        <br><br>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_dosen }}">
                             Delete
                         </button>
+                        <br><br>
                     </td>
                 </tr>
             @endforeach
